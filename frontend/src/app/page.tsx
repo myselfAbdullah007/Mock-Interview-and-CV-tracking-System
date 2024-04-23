@@ -5,8 +5,8 @@ export default function Home() {
     <>
       <div className="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8 pt-4 ">
         <div className="sm:mx-auto sm:w-full sm:max-w-xl">
-          <h1 className="text-center font-bold text-9xl">DevdaSol.</h1>
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <Image className="mx-auto" src="/Logo.png" alt="Comapny logo" width={150} height={150}/>
+          <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>
         </div>
@@ -60,14 +60,22 @@ export default function Home() {
                 Sign in
               </button>
             </div>
+
+            <p className="text-center">Or</p>
+
+            <div>
+              <button
+              type="button"
+              className="w-full bg-red-600	text-white rounded-md py-2.5 text-sm">Sign in with google</button>
+            </div>
           </form>
 
-          <p className="mt-10 text-center text-sm text-gray-500">
+          {/* <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
             <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
               Start a 14 day free trial
             </a>
-          </p>
+          </p> */}
         </div>
       </div>
     </>
