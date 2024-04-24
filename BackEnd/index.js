@@ -6,6 +6,7 @@ var bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const cors = require("cors");
 const connection = require("./config/database.js");
+const UserRouter = require("./Routes/UserRoutes");
 
 // -----| Configration |-----
 const app = express();
