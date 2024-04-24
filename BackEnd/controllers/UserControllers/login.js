@@ -1,7 +1,5 @@
 //BackEnd/controllers/UserControllers/login.js
 
-
-
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
@@ -17,8 +15,7 @@ const login = async (req, res, next) => {
         return res.status(400).json({ error: "All fields are required." });
     }
     try {
-
-
+        console.log(`data recieved${email}`);
         const findUser = await userModel.findOne({ email: email });
         if (!findUser) {
             return res.status(404).json({
