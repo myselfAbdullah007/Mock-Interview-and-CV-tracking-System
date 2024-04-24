@@ -17,6 +17,27 @@ export default function signIn() {
     document.getElementById("abc").textContent = e.target.value;
     setPassword(e.target.value);
   }
+  const verifyCredentials = async (e) =>{
+    e.preventDefault();
+
+    try{
+      const response = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers:{
+          "Content-Typr": "application/json",
+        },
+        body: JSON.stringify({email, password}),
+      });
+      if(response.ok){
+        console.log("User Logged in Successfully!");
+      }else{
+        console.error("Failed to log in.");
+      }
+      
+    } catch(error){
+      console.error("An Error Occoure whi;e logging in: ", error);
+    }
+  }
 
   return (
     <>
