@@ -1,10 +1,11 @@
+/*Frontend/src\app/components/signIn.js*/ 
 'use client'
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
 const BASE_API = "http://localhost:3000/";
 
-export default function signIn() {
+export default function SignIn() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 

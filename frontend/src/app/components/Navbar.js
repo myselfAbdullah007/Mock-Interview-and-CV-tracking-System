@@ -1,3 +1,4 @@
+/*Frontend/src\app/components/Navbar.js*/ 
 import Image from "next/image"
 import Link from "next/link";
 

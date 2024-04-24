@@ -1,3 +1,4 @@
+/*Frontend/src\app/components/Header.js*/ 
 import Image from "next/image"
 export default function Header() {
     return (
