@@ -2,24 +2,24 @@ import Image from "next/image";
 export default function SignUp() {
     return (
         <>
-            <div className="container min-h-screen mt-9 border-6">
-                <div className="grid grid-cols-2 gap-4">
+            <div className="container min-h-screen mt-9 w-3/4 mx-auto">
+                <div className="grid grid-cols-2 gap-4 border border-slate-300 rounded-md shadow-lg ">
                     <div className="">
                         <Image
-                        className="mx-auto"
+                        className="me-auto "
                             src="/SignUp pic.jpeg"
                             alt="SignUp Image"
-                            width={350}
+                            width={380}
                             height={100} />
                     </div>
 
                     <div >
                         <div>
-                            <div className="border-b border-gray-900/10 pb-12 w-3/4">
-                                <h1 className="text-3xl text-base font-semibold leading-7 text-gray-900">Sign Up</h1>
+                            <div className="border-b border-gray-900/10 w-3/4">
+                                <h1 className="text-3xl text-base font-semibold leading-7 text-gray-900 pt-5">Sign Up</h1>
 
-                                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                                    <div className="sm:col-span-3">
+                                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-6">
+                                    <div className="sm:col-span-3 ">
                                         <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
                                             Name
                                         </label>
@@ -110,9 +110,8 @@ export default function SignUp() {
                                             </select>
                                         </div>
                                     </div>
-
-
                                 </div>
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-4 py-2 px-4 rounded">Sign Up</button>
                             </div>
                         </div>
                     </div>
