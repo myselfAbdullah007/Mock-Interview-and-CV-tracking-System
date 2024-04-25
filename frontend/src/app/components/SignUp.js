@@ -23,7 +23,7 @@ export default function SignUp() {
         e.preventDefault;
         try{
             const response = await fetch('/signip',{
-                method: "POST";
+                method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
