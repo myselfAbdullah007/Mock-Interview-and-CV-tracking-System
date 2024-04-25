@@ -1,4 +1,3 @@
-import { Route, Routes } from "react-router-dom";
 import Link from "next/link.js";
 import Header from "./components/Header.js";
 import Navbar from "./components/Navbar.js";
