@@ -25,7 +25,7 @@ export default function SignIn() {
       const response = await fetch("http://localhost:8080/login", {
         method: "POST",
         headers:{
-          "Content-Typr": "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({email, password}),
       });

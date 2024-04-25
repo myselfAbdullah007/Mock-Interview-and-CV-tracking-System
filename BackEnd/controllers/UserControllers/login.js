@@ -10,13 +10,13 @@ const secret = process.env.KEY;
 
 const login = async (req, res, next) => {
     const { email, password } = req.body;
-
+    console.log(req.body);
     if (!email || !password) {
-        console.log(`Email:${email}, Password: ${password}`);
+        console.log(`email: ${email}, password:${password}`);
+
         return res.status(400).json({ error: "All fields are required." });
     }
     try {
-        console.log(`data recieved${email}`);
         const findUser = await userModel.findOne({ email: email });
         if (!findUser) {
             return res.status(404).json({

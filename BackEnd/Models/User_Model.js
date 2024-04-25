@@ -28,18 +28,11 @@ const userSchema = new mongo.Schema({
         type: String,
         required: [true, 'password is required']
     },
-    isVerified: {
-        type: Boolean, default: false
-    },
+   
     passwordResetToken: {
         type: String,
-    },
-    org_registered: {
-        type: Boolean, default: false
-    },
-    org_id: {
-        type: String, default: '0'
     }
+    
     
 
 })

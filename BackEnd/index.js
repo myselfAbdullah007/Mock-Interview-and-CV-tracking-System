@@ -15,7 +15,6 @@ mongoose.set('strictQuery', false);
 app.use(express.urlencoded({ extended: true }))
 // app.use(fileUpload())
 app.use(express.json());
-app.use(bodyParser.json());
 
 connection();
 
