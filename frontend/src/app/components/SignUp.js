@@ -3,7 +3,7 @@ export default function SignUp() {
     return (
         <>
             <div className="container min-h-screen mt-9 w-3/4 mx-auto">
-                <div className="grid grid-cols-2 gap-4 border border-slate-300 rounded-md shadow-lg ">
+                <div className="grid grid-cols-2 gap-4 border border-slate-300 rounded-md shadow-inner">
                     <div className="">
                         <Image
                         className="me-auto "
@@ -16,7 +16,7 @@ export default function SignUp() {
                     <div >
                         <div>
                             <div className="border-b border-gray-900/10 w-3/4">
-                                <h1 className="text-3xl text-base font-semibold leading-7 text-gray-900 pt-5">Sign Up</h1>
+                                <div className="text-4xl text-base font-bold leading-7 text-gray-900 pt-5">Sign Up</div>
 
                                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-6">
                                     <div className="sm:col-span-3 ">

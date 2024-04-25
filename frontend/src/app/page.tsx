@@ -11,8 +11,8 @@ import SignUp from "./components/SignUp.js";
 export default function Home() {
   return (
     <>
-    <SignUp/>
-      {/* <Signin /> */}
+    {/* <SignUp/> */}
+      <Signin />
        {/* <Navbar /> */}
        {/* <AdminPanel/> */}
       {/* <Header />  */}
