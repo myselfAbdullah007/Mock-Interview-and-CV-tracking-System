@@ -10,7 +10,11 @@
     "type": "module"
   },
   "dependencies": {
-    "next": "14.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.2",
+    "next": "^14.2.2",
     "react": "^18",
     "react-dom": "^18",
     "react-router-dom": "^6.23.0"
