@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link.js";
 import Header from "./components/Header.js";
 import Navbar from "./components/Navbar.js";
@@ -10,8 +11,8 @@ import SignUp from "./components/SignUp.js";
 export default function Home() {
   return (
     <>
-    {/* <SignUp/> */}
-      <Signin />
+    <SignUp/>
+      {/* <Signin /> */}
        {/* <Navbar /> */}
        {/* <AdminPanel/> */}
       {/* <Header />  */}
