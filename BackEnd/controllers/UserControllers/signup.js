@@ -8,7 +8,6 @@ const userModel = require("../../Models/User_Model.js");
 
 const secret = process.env.KEY;
 
-app.use(express.json());
 
 
 const signup = async (req, res, next) => {
@@ -30,15 +29,16 @@ const signup = async (req, res, next) => {
 
 
         const hashedPassword = await bcrypt.hash(password,10);
+        console.log("Pasword converted to hash");
 
         const newUser = await userModel.create({
-            name: name,
+            f_name: name,
             username: username,
             email: email,
             password: hashedPassword,
             status: status,
         });
-        console.log(newUser);
+        console.log("user data is: " + newUser);
 
         const payload = {
             id: newUser._id,
@@ -49,7 +49,7 @@ const signup = async (req, res, next) => {
             token: token,
             user: {
                 id: newUser._id,
-                name: newUser.name,
+                f_name: newUser.name,
                 username: newUser.username,
                 email: newUser.email,
                 status: newUser.status,
