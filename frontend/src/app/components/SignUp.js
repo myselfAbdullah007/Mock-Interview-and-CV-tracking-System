@@ -5,44 +5,47 @@ export default function SignUp() {
     const [userData, setuserData] = useState({
         name: "",
         username: "",
-        email:"",
-        password:"",
-        status:""
+        email: "",
+        password: "",
+        status: ""
     });
 
     const setDataInObjec = (e) => {
         const { name, value } = e.target;
         setuserData((prevData) => ({
-          ...prevData,
-          [name]: value,
+            ...prevData,
+            [name]: value,
         }));
-      };
+    };
 
-    const saveSignUpData = async(e) => {
+    const saveSignUpData = async (e) => {
         // document.getElementById('abc').textContent = `Name: ${userData.name}\nUsername: ${userData.username}\nEmail:${userData.email}\nPassword: ${userData.password}\nStatus: ${userData.status}`;
-        e.preventDefault;
-        try{
-            const response = await fetch('/signip',{
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:8080/signup', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(userData),
+                
             });
             const data = await response.json();
             console.log('Response from backend: ', data);
         }
-        catch(error){
-            SVGForeignObjectElement.log("Error: ", error);
+        catch (error) {
+            console.log("Error: ", error);
         }
     };
     return (
         <>
+
             <div className="container min-h-screen mt-9 w-3/4 mx-auto">
-                <div className="grid grid-cols-2 gap-4 border border-slate-300 rounded-md shadow-inner">
+
+                <div className="grid grid-cols-2 gap-4 border border-slate-300 rounded-md shadow-xl">
                     <div className="">
                         <Image
-                        className="me-auto "
+                            className="me-auto "
                             src="/SignUp pic.jpeg"
                             alt="SignUp Image"
                             width={380}
@@ -78,7 +81,7 @@ export default function SignUp() {
                                         <div className="mt-2">
                                             <input
                                                 type="text"
-                                                name="user-name"
+                                                name="username"
                                                 id="last-name"
                                                 autoComplete="family-name"
                                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -144,7 +147,7 @@ export default function SignUp() {
                                                 autoComplete="country-name"
                                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                                 onChange={setDataInObjec}
-                                                >
+                                            >
                                                 <option>Student</option>
                                                 <option>Mentor</option>
                                                 <option>CSO</option>
