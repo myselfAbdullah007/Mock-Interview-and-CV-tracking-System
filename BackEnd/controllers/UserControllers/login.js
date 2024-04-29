@@ -10,6 +10,7 @@ const secret = process.env.KEY;
 
 const login = async (req, res, next) => {
     const { email, password } = req.body;
+    console.log(`data recieved${email}`);
 
     if (!email || !password) {
         return res.status(400).json({ error: "All fields are required." });
