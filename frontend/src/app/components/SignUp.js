@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function SignUp() {
     const [userData, setuserData] = useState({
         f_name: "",
+        f_name: "",
         username: "",
         email: "",
         password: "",

@@ -18,13 +18,11 @@ const signup = async (req, res, next) => {
 
         return res.status(400).json({ error: "All fields are required." });
     }
-    console.log("1st IF passed");
     try {
         const existingUser = await userModel.findOne({ email: email });
         if (existingUser) {
             return res.status(409).json({ error: "User with this email already exists." });
         }
-        console.log("2nd IF passed");
 
 
         const hashedPassword = await bcrypt.hash(password,10);
@@ -36,7 +34,6 @@ const signup = async (req, res, next) => {
             password: hashedPassword,
             status: status,
         });
-        console.log(newUser);
 
         const payload = {
             id: newUser._id,
