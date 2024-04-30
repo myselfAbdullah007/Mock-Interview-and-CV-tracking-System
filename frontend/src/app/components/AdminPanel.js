@@ -1,21 +1,22 @@
 /* Frontend/src\app/components/adminPanel.js */
 
-import Layout from "./Layout";
 import VerticalNavbar from './VerticalNavbar';
 import Heading from "./Heading";
+import UserTable from './UserTable';
 
-export default function AdminPanel({ children }) {
+export default function AdminPanel() {
     return (
-        <Layout>
-            <div className="mt-32">
-                <div className="flex">
-                    <VerticalNavbar />
-                    <main className="flex-grow">
-                        <Heading />
-                        {children}
-                    </main>
-                </div>
+        <div className="mt-24">
+            <div className="flex">
+                <VerticalNavbar />
+                <main className="container flex-grow min-h-screen">
+                    <Heading />
+                    <div className='w-4/5 ms-auto mt-5'>
+                        <UserTable/>
+                    </div>
+                </main>
             </div>
-        </Layout>
+        </div>
+
     );
 }
