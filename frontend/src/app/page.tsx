@@ -11,16 +11,11 @@ import SignUp from "./components/SignUp.js";
 export default function Home() {
   return (
     <>
-    <SignUp/>
+      {/* <SignUp/> */}
       {/* <Signin /> */}
-       {/* <Navbar /> */}
-       {/* <AdminPanel/> */}
+      <Navbar />
+      <AdminPanel/>
       {/* <Header />  */}
-      {/* {typeof window !== "undefined" && (
-        <Routes>
-          <Route path="/sign-in" element={<Signin />} />
-        </Routes>
-      )} */}
     </>
   );
 }

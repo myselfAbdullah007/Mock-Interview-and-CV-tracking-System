@@ -1,9 +1,21 @@
-/*Frontend/src\app/components/adminPanel.js*/ 
-export default function adminPanel(){
-return(
-    <>
-    <h1 className="text-center">Welcome! to Admin Panel</h1>
-    </>
-);
-}
+/* Frontend/src\app/components/adminPanel.js */
 
+import Layout from "./Layout";
+import VerticalNavbar from './VerticalNavbar';
+import Heading from "./Heading";
+
+export default function AdminPanel({ children }) {
+    return (
+        <Layout>
+            <div className="mt-32">
+                <div className="flex">
+                    <VerticalNavbar />
+                    <main className="flex-grow">
+                        <Heading />
+                        {children}
+                    </main>
+                </div>
+            </div>
+        </Layout>
+    );
+}

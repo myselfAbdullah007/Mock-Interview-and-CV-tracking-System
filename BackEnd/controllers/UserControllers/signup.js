@@ -8,15 +8,13 @@ const userModel = require("../../Models/User_Model.js");
 
 const secret = process.env.KEY;
 
-app.use(express.json());
 
 
 const signup = async (req, res, next) => {
-    const { name, username, email, password, status } = req.body;
+    const { f_name, username, email, password, status } = req.body;
     console.log(req.body);
 
-    if (!name || !username || !email || !password || !status) {
-        // console.log(name + username + email + password + status);
+    if (!f_name || !username || !email || !password || !status) {
 
         return res.status(400).json({ error: "All fields are required." });
     }
@@ -32,7 +30,7 @@ const signup = async (req, res, next) => {
         const hashedPassword = await bcrypt.hash(password,10);
 
         const newUser = await userModel.create({
-            name: name,
+            f_name: f_name,
             username: username,
             email: email,
             password: hashedPassword,
@@ -49,7 +47,7 @@ const signup = async (req, res, next) => {
             token: token,
             user: {
                 id: newUser._id,
-                name: newUser.name,
+                f_name: newUser.f_name,
                 username: newUser.username,
                 email: newUser.email,
                 status: newUser.status,
