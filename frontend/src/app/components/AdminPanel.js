@@ -12,7 +12,7 @@ export default function AdminPanel() {
                 <main className="container flex-grow min-h-screen">
                     <Heading />
                     <div className='w-4/5 ms-auto mt-5'>
-                        <UserTable/>
+                        <UserTable />
                     </div>
                 </main>
             </div>
