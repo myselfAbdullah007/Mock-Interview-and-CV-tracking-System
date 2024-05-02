@@ -13,7 +13,7 @@ export default function Home() {
     <>
       {/* <SignUp/> */}
       {/* <Signin /> */}
-      <Navbar />
+      {/* <Navbar /> */}
       <AdminPanel/>
       {/* <Header />  */}
     </>
