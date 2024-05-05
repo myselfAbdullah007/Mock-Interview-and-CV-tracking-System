@@ -1,6 +1,7 @@
 /*Frontend/src\app/components/signIn.js*/
 'use client'
 import 'tailwindcss/tailwind.css';
+import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 const BASE_API = "http://localhost:3000/";
@@ -45,7 +46,7 @@ export default function SignIn() {
   }
 
   return (
-    <> 
+    <>
       <div className="min-h-screen">
         <div className=" grid grid-cols-2 border border-slate-300 w-2/3 mx-auto bg-white mt-8 rounded-md shadow-xl">
           <div className="sm:mx-auto sm:w-full sm:max-w-xl pt-2 pb-16">
@@ -106,8 +107,10 @@ export default function SignIn() {
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-3.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     onClick={verifyCredentials}
                   >
-                    Sign In
+                    <Link href="/adminPanel/DashBoard">
+                      Sign In</Link>
                   </button>
+
                 </div>
               </form>
             </div>

@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from "react";
+import 'tailwindcss/tailwind.css';
 import Statics from "./statics";
 
 export default function NumericalStatics() {

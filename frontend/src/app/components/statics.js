@@ -6,7 +6,7 @@ export default function NumericalStatics(props) {
 
     useEffect(() => {
         settitle(props.title);
-    }, props.title);
+    }, [props.title]);
 
     return (
         <>

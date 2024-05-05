@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import 'tailwindcss/tailwind.css';
+import './../globals.css';
 
 const DetailedData = (props) => {
     const [displayFlag, setDisplayFlag] = useState(false);

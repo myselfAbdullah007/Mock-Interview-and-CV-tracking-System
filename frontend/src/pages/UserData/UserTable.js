@@ -1,18 +1,25 @@
 'use client'
 import { useState, useEffect } from "react";
 import 'tailwindcss/tailwind.css';
-
-
 import DetailedData from "./../../app/components/DetailedData";
-export default function UserTable() {
+
+export default function UserTable(props) {
+    const [label1, setlabel1] = useState("");
+    const [label2, setlabel2] = useState("");
+    const [label3, setlabel3] = useState("");
+
     const [items, setitems] = useState([]);
     const [displayFlag, setDisplayFlag] = useState(false);
     const [singleItem, setsingleItem] = useState(null);
 
 
     useEffect(() => {
+        setlabel1(props.name);
+        setlabel2(props.username);
+        setlabel3(props.email);
+
         GetTodos();
-    }, []);
+    }, [props.name, props.username, props.email]);
 
     const GetTodos = () => {
         fetch("http://localhost:8080/")
@@ -36,7 +43,7 @@ export default function UserTable() {
             <thead className="bg-cyan-500">
                 <tr>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-900 uppercase tracking-wider">Id</th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-900 uppercase tracking-wider">Name</th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-900 uppercase tracking-wider">{label1}</th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-900 uppercase tracking-wider">User Name</th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-900 uppercase tracking-wider">Email</th>
                 </tr>
@@ -55,7 +62,7 @@ export default function UserTable() {
             </tbody>
         </table>
         <button onClick={close}>X</button>
-        {/* {displayFlag && <DetailedData display={displayFlag} singleItem={singleItem}/>} */}
+        {displayFlag && <DetailedData display={displayFlag} singleItem={singleItem}/>}
         </>
 
     );
