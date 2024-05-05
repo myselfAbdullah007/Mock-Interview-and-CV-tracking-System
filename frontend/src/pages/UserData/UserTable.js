@@ -1,6 +1,9 @@
 'use client'
 import { useState, useEffect } from "react";
-import DetailedData from "./DetailedData";
+import 'tailwindcss/tailwind.css';
+
+
+import DetailedData from "./../../app/components/DetailedData";
 export default function UserTable() {
     const [items, setitems] = useState([]);
     const [displayFlag, setDisplayFlag] = useState(false);
@@ -36,7 +39,6 @@ export default function UserTable() {
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-900 uppercase tracking-wider">Name</th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-900 uppercase tracking-wider">User Name</th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-900 uppercase tracking-wider">Email</th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acceptance</th>
                 </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
@@ -47,14 +49,13 @@ export default function UserTable() {
                         <td className="px-6 py-4 whitespace-nowrap text-xs">{item.f_name}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-xs">{item.username}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-xs">{item.email}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-xs"><a href="#" className="text-red-600 font-bold">Delete</a></td>
                     </tr>
                 ))}
 
             </tbody>
         </table>
         <button onClick={close}>X</button>
-        {displayFlag && <DetailedData display={displayFlag} singleItem={singleItem}/>}
+        {/* {displayFlag && <DetailedData display={displayFlag} singleItem={singleItem}/>} */}
         </>
 
     );

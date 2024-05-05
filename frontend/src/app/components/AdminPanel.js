@@ -2,7 +2,7 @@
 
 import VerticalNavbar from './VerticalNavbar';
 import Heading from "./Heading";
-import UserTable from './UserTable';
+import UserTable from './../../pages/UserData/UserTable';
 import Navbar from './Navbar';
 import NumericalStatics from './NumericalStatics';
 

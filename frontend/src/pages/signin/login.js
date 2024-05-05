@@ -1,6 +1,6 @@
 /*Frontend/src\app/components/signIn.js*/
 'use client'
-
+import 'tailwindcss/tailwind.css';
 import Image from "next/image";
 import { useState } from "react";
 const BASE_API = "http://localhost:3000/";
@@ -8,14 +8,15 @@ const BASE_API = "http://localhost:3000/";
 export default function SignIn() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [loggedin, setloggedin] = useState(false);
 
 
   const captureEmail = (e) => {
-    document.getElementById("abc").textContent = e.target.value;
+    // document.getElementById("abc").textContent = e.target.value;
     setEmail(e.target.value);
   }
   const capturePassword = (e) => {
-    document.getElementById("abc").textContent = e.target.value;
+    // document.getElementById("abc").textContent = e.target.value;
     setPassword(e.target.value);
   }
   const verifyCredentials = async (e) => {
@@ -30,7 +31,10 @@ export default function SignIn() {
         body: JSON.stringify({ email, password }),
       });
       if (response.ok) {
+        const data = await response.json();
+        setloggedin(true);
         console.log("User Logged in Successfully!");
+        console.log("Response data:", data);
       } else {
         console.error("Failed to log in.");
       }

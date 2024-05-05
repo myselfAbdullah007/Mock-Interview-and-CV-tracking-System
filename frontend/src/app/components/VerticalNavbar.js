@@ -8,7 +8,7 @@ export default function verticalNavbar() {
                     <Link href="/" className="text-white">Home</Link>
                 </li>
                 <li className="mb-4">
-                    <Link href="/about" className="text-white">About</Link>
+                    <Link href="/UserData/UserTable" className="text-white">User Table</Link>
                 </li>
                 <li className="mb-4">
                     <Link href="/services" className="text-white">Services</Link>
