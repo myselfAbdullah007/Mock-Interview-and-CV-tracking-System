@@ -22,7 +22,7 @@ export default function SignIn() {
   }
   const verifyCredentials = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await fetch("http://localhost:8080/login", {
         method: "POST",
@@ -31,19 +31,30 @@ export default function SignIn() {
         },
         body: JSON.stringify({ email, password }),
       });
+  
       if (response.ok) {
         const data = await response.json();
-        setloggedin(true);
         console.log("User Logged in Successfully!");
         console.log("Response data:", data);
+        // console.log("Status: ", data.status)
+  
+        setloggedin(true);
+  
+        if (loggedin && (data.status === "CSO")) {
+          window.location.href = "/adminPanel/DashBoard";
+        }else if (loggedin && (data.status === "Mentor")) {
+          window.location.href = "/mentorPanel/mentorPanel";
+        }else if (loggedin && (data.status === "Student")) {
+          window.location.href = "/userPanel/userPanel";
+        }
       } else {
         console.error("Failed to log in.");
       }
-
     } catch (error) {
-      console.error("An Error Occoure whi;e logging in: ", error);
+      console.error("An Error Occurred while logging in: ", error);
     }
   }
+  
 
   return (
     <>
@@ -106,9 +117,9 @@ export default function SignIn() {
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-3.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     onClick={verifyCredentials}
-                  >
+                  >Sign In
                     <Link href="/adminPanel/DashBoard">
-                      Sign In</Link>
+                      </Link>
                   </button>
 
                 </div>

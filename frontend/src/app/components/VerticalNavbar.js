@@ -11,7 +11,7 @@ export default function verticalNavbar() {
                     <Link href="/adminPanel/AdminPanel" className="text-white">User Table</Link>
                 </li>
                 <li className="mb-4">
-                    <Link href="/adminPanel/Companies" className="text-white">Companies</Link>
+                    <Link href="/adminPanel/CompanyPanel" className="text-white">Companies</Link>
                 </li>
                 <li className="mb-4">
                     <Link href="/contact" className="text-white">Contact</Link>
