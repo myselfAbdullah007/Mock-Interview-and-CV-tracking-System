@@ -4,6 +4,7 @@ import 'tailwindcss/tailwind.css';
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+// import 'next-auth/client';
 const BASE_API = "http://localhost:3000/";
 
 export default function SignIn() {
