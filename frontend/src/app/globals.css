@@ -15,7 +15,13 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+.background{
+  background-image: url("/background.jpg");  
+}
+.abc{
+ background-image: url('/hero-services-img.webp');
 
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
