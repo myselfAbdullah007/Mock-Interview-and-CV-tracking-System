@@ -1,8 +1,11 @@
 'use client'
 import 'tailwindcss/tailwind.css';
+import React, { useRef } from 'react';
 import Image from "next/image";
 import { useState } from "react";
+import { CldUploadWidget } from 'next-cloudinary';
 export default function SignUp() {
+    const fileInputRef = useRef(null);
     // const [userData, setuserData] = useState({
     //     f_name: "",
     //     username: "",
@@ -141,8 +144,22 @@ export default function SignUp() {
                                     </div>
                                 </div>
 
+                                {/* <CldUploadWidget uploadPreset="Mock_Interview_cloudinary_web_app">
+                                    {({ open }) => {
+                                        return (
+                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-4 py-2 px-4 rounded me-3"
+                                                onClick={() => open()}>
+                                                Upload an Image
+                                            </button>
+
+                                        );
+                                    }}
+                                </CldUploadWidget> */}
 
 
+                                {/* <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-4 py-2 px-4 rounded me-3"
+                                // onClick={saveSignUpData}
+                                >Upload Profile pic</button> */}
 
                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-4 py-2 px-4 rounded"
                                 // onClick={saveSignUpData}

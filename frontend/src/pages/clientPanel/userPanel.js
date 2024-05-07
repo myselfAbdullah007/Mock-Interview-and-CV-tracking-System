@@ -8,14 +8,14 @@ import Navbar from './../../app/components/Navbar';
 
 
 export default function mentorPanel() {
-    
+
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar meeting={"Interviews"} location2={"#"} menu4={"Edit profile(change krna he)"} location4={"/editProfile/userPanel"}/> */}
       <div className='mt-28 mb-10'>
-      <Heading name={"Welcome to Client Panel"}/>
+        <Heading name={"Welcome to Client Panel"} />
       </div>
-      <JobCard/>
+      <JobCard />
     </div>
   )
 }

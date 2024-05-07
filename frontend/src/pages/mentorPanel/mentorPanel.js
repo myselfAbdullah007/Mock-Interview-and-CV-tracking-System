@@ -2,6 +2,7 @@
 import 'tailwindcss/tailwind.css';
 import React from 'react'
 import Heading from "./../../app/components/Heading";
+import Navbar from './../../app/components/Navbar';
 
 const movetoRegistration =() =>{
   window.location.href = "/mentorPanel/RegisterCompany";
@@ -11,8 +12,9 @@ export default function mentorPanel() {
 
   return (
     <>
-      <div>
-        <Heading name={"Mentor"} />
+    <Navbar meeting={"Schecule Interview"} location2={"/mentorPanel/scheduleInterview"}/>
+    <div className='mt-28 mb-10'>
+        <Heading name={"Welcome to Mentor Panel"} />
       </div>
       <div className='container mx-20 mt-10'>
         {/* <div>

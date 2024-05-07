@@ -1,8 +1,21 @@
 /*Frontend/src\app/components/Navbar.js*/ 
 import Image from "next/image"
+import { useEffect,useState } from "react";
 import Link from "next/link";
 
-export default function Navbar() {
+export default function Navbar(props) {
+    const [menu2, setmenu2] = useState("");
+    const [location2, setlocation2] = useState("");
+
+    useEffect(() => {
+        setmenu2(props.meeting);
+        setlocation2(props.location2)
+    }, [props.meeting, props.location2]);
+
+    const movetomenu2 =() =>{
+        window.location.href= location2;
+    }
+
     return (
         <header className="absolute inset-x-0 top-0 z-50">
             <nav className="flex items-center justify-between p-6 lg:px-8">
@@ -26,7 +39,9 @@ export default function Navbar() {
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Product</a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Features</a>
+                    <Link href={location2} className="text-sm font-semibold leading-6 text-gray-900
+                    // " onClick={movetomenu2}
+                    >{menu2}</Link>
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Company</a>
                 </div>
