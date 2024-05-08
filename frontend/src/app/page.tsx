@@ -1,22 +1,16 @@
-import { Route, Routes } from "react-router-dom";
-import Link from "next/link.js";
+'use client'
 import Header from "./components/Header.js";
 import Navbar from "./components/Navbar.js";
-import Signin from "./components/signIn.js";
+import MentorPanel from "./../pages/mentorPanel/mentorPanel.js";
+import Heading from "./components/Heading.js";
 
 
 
 export default function Home() {
   return (
     <>
-      <Signin />
-       {/* <Navbar />
-      <Header />  */}
-      {/* {typeof window !== "undefined" && (
-        <Routes>
-          <Route path="/sign-in" element={<Signin />} />
-        </Routes>
-      )} */}
+      <Navbar />
+      <Header />
     </>
   );
 }
