@@ -8,43 +8,52 @@ const userModel = require("../../Models/User_Model.js");
 
 const secret = process.env.KEY;
 
+
+
 const signup = async (req, res, next) => {
     const { f_name, username, email, password, status } = req.body;
+    console.log(req.body);
 
-    // Check if all required fields are provided
     if (!f_name || !username || !email || !password || !status) {
+
         return res.status(400).json({ error: "All fields are required." });
     }
-  
-
-    
     try {
-        // Check if the email or username is already registered
-        const existingUser = await userModel.findOne({ $or: [{ email: email }, { username: username }] });
+        const existingUser = await userModel.findOne({ email: email });
         if (existingUser) {
-            return res.status(409).json({ error: "Email or username is already registered." });
+            return res.status(409).json({ error: "User with this email already exists." });
         }
 
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create a new user
-        const newUser = new userModel({
+        const hashedPassword = await bcrypt.hash(password,10);
+
+        const newUser = await userModel.create({
             f_name: f_name,
             username: username,
             email: email,
             password: hashedPassword,
-            status: status
+            status: status,
         });
 
-        // Save the user to the database
-        await newUser.save();
-
-        return res.status(201).json({ message: "User created successfully." });
+        const payload = {
+            id: newUser._id,
+        };
+        const token = jwt.sign(payload, process.env.KEY, { expiresIn: "96h" });
+        return res.status(201).json({
+            message: "User created successfully",
+            token: token,
+            user: {
+                id: newUser._id,
+                f_name: newUser.f_name,
+                username: newUser.username,
+                email: newUser.email,
+                status: newUser.status,
+            },
+        });
     } catch (error) {
         console.error("Error creating user:", error);
-        return res.status(500).json({ error: "Internal server error." });
+        return res.status(500).json({ error: "Internal server error" });
     }
-};
+}
 
 module.exports = signup;

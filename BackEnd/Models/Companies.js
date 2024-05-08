@@ -31,12 +31,26 @@ const CompanyModel  = new mongo.Schema({
         }
     },
 
+    description: {
+        type: String,
+        required: [true, 'website description is must']
+    },
+
+    profile: {
+        type: String,
+        required: [false, 'profile pic is not must']
+    },
+
     jobs: {
         type: [String],
         required: [false, 'jobs array is not required'],
         default:[]
     },
 
+    isVerified: {
+        type: Boolean,
+        required: [false, 'Verification is not mandatory'], 
+    },
 })
 
 
