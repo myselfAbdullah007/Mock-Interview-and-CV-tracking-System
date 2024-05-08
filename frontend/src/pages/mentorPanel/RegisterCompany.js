@@ -6,41 +6,42 @@ import { useState } from "react";
 import { CldUploadWidget } from 'next-cloudinary';
 export default function SignUp() {
     const fileInputRef = useRef(null);
-    // const [userData, setuserData] = useState({
-    //     f_name: "",
-    //     username: "",
-    //     email: "",
-    //     password: "",
-    //     status: ""
-    // });
+    const [userData, setuserData] = useState({
+        company_name: "",
+        industry: "",
+        location: "",
+        website: "",
+        description: ""
+    });
 
-    // const setDataInObjec = (e) => {
-    //     const { name, value } = e.target;
-    //     setuserData((prevData) => ({
-    //         ...prevData,
-    //         [name]: value,
-    //     }));
-    // };
+    const setDataInObjec = (e) => {
+        const { name, value } = e.target;
+        setuserData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
 
-    // const saveSignUpData = async (e) => {
-    //     // document.getElementById('abc').textContent = `Name: ${userData.name}\nUsername: ${userData.username}\nEmail:${userData.email}\nPassword: ${userData.password}\nStatus: ${userData.status}`;
-    //     e.preventDefault();
-    //     try {
-    //         const response = await fetch('http://localhost:8080/signup', {
-    //             method: "POST",
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(userData),
+    const saveSignUpData = async (e) => {
+        // document.getElementById('abc').textContent = `Name: ${userData.name}\nUsername: ${userData.username}\nEmail:${userData.email}\nPassword: ${userData.password}\nStatus: ${userData.status}`;
+        console.log(userData);
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:4000/create-company', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
 
-    //         });
-    //         const data = await response.json();
-    //         console.log('Response from backend: ', data);
-    //     }
-    //     catch (error) {
-    //         console.log("Error: ", error);
-    //     }
-    // };
+            });
+            const data = await response.json();
+            console.log('Response from backend: ', data);
+        }
+        catch (error) {
+            console.log("Error: ", error);
+        }
+    };
     return (
         <>
 
@@ -73,7 +74,7 @@ export default function SignUp() {
                                                 id="company_name"
                                                 autoComplete="given-name"
                                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                            // onChange={setDataInObjec}
+                                            onChange={setDataInObjec}
                                             />
                                         </div>
                                     </div>
@@ -86,7 +87,7 @@ export default function SignUp() {
                                             name="industry"
                                             autoComplete="industry"
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                                        // onChange={setDataInObjec}
+                                        onChange={setDataInObjec}
                                         >
                                             <option>IT</option>
                                             <option>Technology</option>
@@ -108,7 +109,7 @@ export default function SignUp() {
                                             id="location"
                                             autoComplete="location"
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                        // onChange={setDataInObjec}
+                                        onChange={setDataInObjec}
                                         />
                                     </div>
                                 </div>
@@ -124,7 +125,7 @@ export default function SignUp() {
                                             type="text"
                                             autoComplete="website"
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                        // onChange={setDataInObjec}
+                                        onChange={setDataInObjec}
                                         />
                                     </div>
                                 </div>
@@ -139,7 +140,7 @@ export default function SignUp() {
                                             rows="4"
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                             placeholder="Enter description"
-                                        // onChange={setDataInObject}
+                                        onChange={setDataInObjec}
                                         ></textarea>
                                     </div>
                                 </div>
@@ -162,7 +163,7 @@ export default function SignUp() {
                                 >Upload Profile pic</button> */}
 
                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-4 py-2 px-4 rounded"
-                                // onClick={saveSignUpData}
+                                onClick={saveSignUpData}
                                 >Sign Up</button>
                             </div>
                         </div>

@@ -12,7 +12,7 @@ export default function mentorPanel() {
 
   return (
     <>
-    <Navbar meeting={"Schecule Interview"} location2={"/mentorPanel/scheduleInterview"}/>
+    <Navbar meeting={"Schecule Interview"} location2={"/mentorPanel/scheduleInterview"} menu4={"Edit profile(change krna he)"} location4={`#`}/>
     <div className='mt-28 mb-10'>
         <Heading name={"Welcome to Mentor Panel"} />
       </div>
