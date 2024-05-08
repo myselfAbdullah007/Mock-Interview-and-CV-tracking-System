@@ -10,7 +10,7 @@ export default function AdminPanel() {
     const { user } = router.query;
     return (
         <>
-      <Navbar meeting={"Interviews"} location2={"#"} menu4={"Edit profile(change krna he)"} location4={`/clientPanel/editProfile?user=${user}`}/>
+      <Navbar home={"Home"} location1={"/adminPanel/adminPanel"}  meeting={"Interviews"} location2={"#"} menu4={"Edit profile(change krna he)"} location4={`/clientPanel/editProfile?user=${user}`}/>
 
             <div className="mt-24">
                 <div className="flex">

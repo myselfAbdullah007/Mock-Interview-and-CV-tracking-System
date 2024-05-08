@@ -100,7 +100,7 @@ export default function editProfile() {
 
     return (
         <>
-            <Navbar meeting={"Interviews"} location2={"#"} menu4={"Edit profile(change krna he)"} location4={"/clientPanel/editProfile"} />
+      <Navbar home={"Home"} location1={"/clientPanel/userPanel"} meeting={"Interviews"} location2={"#"} menu4={"Edit profile(change krna he)"} location4={`/clientPanel/editProfile?user=${user}`}/>
             <div className='mt-28 mb-10'>
                 <Heading name={"Edit your resume"} />
             </div>
