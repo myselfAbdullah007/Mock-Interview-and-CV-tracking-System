@@ -10,6 +10,6 @@ export default function Heading(props){
 
 
     return (
-        <h1 className="text-center text-2xl mt-10 font-bold">Welcome to {name} Panel</h1>
+        <h1 className="text-center text-2xl mt-10 font-bold">{name}</h1>
     );
 }
