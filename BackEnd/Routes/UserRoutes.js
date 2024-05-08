@@ -18,6 +18,6 @@ UserRouter.get("/", getUserController);
 // Get User by ID Route
 UserRouter.get("/:id", getUserById);
 // Save User profile
-UserRouter.get("/saveProfile", saveUserProfile);
+UserRouter.post("/saveProfile", saveUserProfile);
 
 module.exports = UserRouter;
