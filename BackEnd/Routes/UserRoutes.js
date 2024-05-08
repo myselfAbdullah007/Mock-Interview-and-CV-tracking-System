@@ -4,7 +4,7 @@ const loginController = require('../controllers/UserControllers/login');
 const signupController = require('../controllers/UserControllers/signup');
 const getUserController = require('../controllers/UserControllers/userData');
 const getUserById = require('../controllers/UserControllers/singleUserData');
-const saveUserProfile = require('../controllers/UserControllers/singleUserData');
+const saveUserProfile = require('../controllers/UserControllers/saveProfile');
 
 
 const UserRouter = express.Router();
