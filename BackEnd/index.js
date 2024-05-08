@@ -61,7 +61,7 @@ mongoose.set('strictQuery', false);
 jobApp.use(cors());
 jobApp.use(express.urlencoded({extended: true}));
 jobApp.use(express.json());
-mongoose.set('strictQuery, false');
+mongoose.set('strictQuery', false);
 
 connection();
 
@@ -73,7 +73,7 @@ jobApp.use('/', JobRouter);
 // -----| App listening |------
 const userPort = process.env.USER_PORT || 8080; // Port for handling user data
 const companyPort = process.env.COMPANY_PORT || 4000; // Port for handling company data
-const jobPort = process.env.JOB_PORT || 
+const jobPort = process.env.JOB_PORT || 6000; // Port for handling job data
 
 
 app.listen(userPort, () => {

@@ -2,7 +2,7 @@
 const mongo = require('mongoose');
 const { isURL } = require('validator');
 
-const CompanyModel  = new mongo.Schema({
+const JobModel  = new mongo.Schema({
     title: {
         type: String,
         required: [true, "title is must"],
@@ -44,6 +44,6 @@ const CompanyModel  = new mongo.Schema({
 })
 
 
-const companyModel = mongo.model('companies', CompanyModel )
+const jobModel = mongo.model('Jobs', JobModel )
 
-module.exports = companyModel;
+module.exports = jobModel;
