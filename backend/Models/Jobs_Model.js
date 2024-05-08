@@ -14,6 +14,10 @@ const JobModel  = new mongo.Schema({
         required: [true, "description is  must"]
         
     },
+    status:{
+        type:String,
+        required:[true, 'status is required'],
+    },
 
     salary: {
         type: String,
@@ -39,7 +43,7 @@ const JobModel  = new mongo.Schema({
 
     company_id:{
         type: String,
-        required: [true, 'company_id is requierd']
+        required: [false, 'company_id is requierd']
     },
 })
 

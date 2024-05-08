@@ -1,23 +1,27 @@
-/*Frontend/src\app/components/Navbar.js*/ 
+/*Frontend/src\app/components/Navbar.js*/
 import Image from "next/image"
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Navbar(props) {
+    const [menu1, setmenu1] = useState("");
+    const [location1, setlocation1] = useState("");
     const [menu2, setmenu2] = useState("");
     const [location2, setlocation2] = useState("");
     const [menu4, setmenu4] = useState("");
     const [location4, setlocation4] = useState("");
 
     useEffect(() => {
+        setmenu1(props.home);
+        setlocation1(props.location1);
         setmenu2(props.meeting);
         setlocation2(props.location2);
         setmenu4(props.menu4);
         setlocation4(props.location4);
-    }, [props.meeting, props.location2,props.menu4, props.location4]);
+    }, [props.home, props.location1, props.meeting, props.location2, props.menu4, props.location4]);
 
-    const movetomenu2 =() =>{
-        window.location.href= location2;
+    const movetomenu2 = () => {
+        window.location.href = location2;
     }
 
     return (
@@ -42,15 +46,17 @@ export default function Navbar(props) {
                     </button>
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Product</a>
-                    <Link href={location2} className="text-sm font-semibold leading-6 text-gray-900"
-                    //  onClick={movetomenu2}
-                    >{menu2}</Link>
+                    <Link href={location1} className="text-sm font-semibold leading-6 text-gray-900">
+                        {menu1}
+                    </Link>
+                    <Link href={location2} className="text-sm font-semibold leading-6 text-gray-900">
+                        {menu2}
+                    </Link>
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
                     <Link href={location4} className="text-sm font-semibold leading-6 text-gray-900">
                         {menu4}
-                        </Link>
-                        </div>
+                    </Link>
+                </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <Link href="/signin/login" className="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></Link>
                 </div>

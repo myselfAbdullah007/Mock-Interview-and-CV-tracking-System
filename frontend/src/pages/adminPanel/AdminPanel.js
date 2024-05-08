@@ -1,14 +1,17 @@
 /* Frontend/src\app/components/adminPanel.js */
 
 import VerticalNavbar from '../../app/components/VerticalNavbar';
+import { useRouter } from 'next/router';
 import Heading from "../../app/components/Heading";
 import Navbar from '../../app/components/Navbar';
 import UserTable from '../UserData/UserTable';
 
 export default function AdminPanel() {
+    const router = useRouter();
+    const { user } = router.query;
     return (
         <>
-            <Navbar />
+      <Navbar meeting={"Interviews"} location2={"#"} menu4={"Edit profile(change krna he)"} location4={`/clientPanel/editProfile?user=${user}`}/>
 
             <div className="mt-24">
                 <div className="flex">

@@ -114,9 +114,9 @@ export default function editProfile() {
                 <hr />
                 <div className='grid grid-cols-4'>
                     <div className='font-light'>{items.email}</div>
-                    <input type='tel' className='w-full' placeholder='Contact number' onChange={handleContactInputChange}/>
-                    <input type='text' className='w-full' placeholder='Linkedin profile Name' onChange={handleLinkedinInputChange}/>
-                    <input type='text' className='w-full' placeholder='Github profile Name' onChange={handleGithubInputChange}/>
+                    <input type='tel' className='w-full' placeholder='Contact number' onBlur={handleContactInputChange}/>
+                    <input type='text' className='w-full' placeholder='Linkedin profile Name' onBlur={handleLinkedinInputChange}/>
+                    <input type='text' className='w-full' placeholder='Github profile Name' onBlur={handleGithubInputChange}/>
                 </div>
                 <hr />
                 <div className='grid grid-cols-2 mt-10'>
@@ -124,7 +124,7 @@ export default function editProfile() {
                         <section>
                             <div className='text-2xl font-extrabold mb-5'>Work Experience</div>
                             <div className='space-y-2'>
-                                <input type='text' className='w-full' placeholder='Work Experience 1' onChange={(e) => handleInputChange(e, setwork)}/>
+                                <input type='text' className='w-full' placeholder={items.work?'Work Experience 1':items.work} onChange={(e) => handleInputChange(e, setwork)}/>
                                 <input type='text' className='w-full' placeholder='Work Experience 2' onChange={(e) => handleInputChange(e, setwork)}/>
                                 <input type='text' className='w-full' placeholder='Work Experience 3' onChange={(e) => handleInputChange(e, setwork)}/>
                             </div>
