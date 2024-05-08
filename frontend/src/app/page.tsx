@@ -9,7 +9,7 @@ import Heading from "./components/Heading.js";
 export default function Home() {
   return (
     <>
-            <Navbar meeting={"Interviews"} location2={"#"} menu4={"Edit profile(change krna he)"} location4={"/clientPanel/editProfile"} />
+            <Navbar home={"Home"} location1={"/"} meeting={"Interviews"} location2={"#"} menu4={"Edit profile(change krna he)"} location4={"/clientPanel/editProfile"} />
       <Header />
     </>
   );

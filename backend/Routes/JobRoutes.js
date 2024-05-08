@@ -1,6 +1,6 @@
 
 const express = require('express');
-const saveJobController = require('../controllers/UserControllers/company');
+const saveJobController = require('../controllers/UserControllers/saveJob');
 
 
 
