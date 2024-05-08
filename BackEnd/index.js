@@ -41,12 +41,13 @@ const cors = require("cors");
 const connection = require("./config/database.js");
 const UserRouter = require("./Routes/UserRoutes");
 const CompanyRouter = require("./Routes/CompanyRoutes.js");
+const JobRouter = require("./Routes/JobRoutes.js");
 
 // -----| Configuration |-----
 const app = express();
-const companyApp = express(); // Create a new Express app for companies
+const companyApp = express();
+const jobApp = express();
 
-// Set up middleware
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -57,15 +58,22 @@ companyApp.use(express.urlencoded({ extended: true }));
 companyApp.use(express.json());
 mongoose.set('strictQuery', false);
 
+jobApp.use(cors());
+jobApp.use(express.urlencoded({extended: true}));
+jobApp.use(express.json());
+mongoose.set('strictQuery, false');
+
 connection();
 
 // Routes
 app.use('/', UserRouter);
-companyApp.use('/', CompanyRouter); // Use CompanyRouter with the new Express app for companies
+companyApp.use('/', CompanyRouter); 
+jobApp.use('/', JobRouter);
 
 // -----| App listening |------
 const userPort = process.env.USER_PORT || 8080; // Port for handling user data
 const companyPort = process.env.COMPANY_PORT || 4000; // Port for handling company data
+const jobPort = process.env.JOB_PORT || 
 
 
 app.listen(userPort, () => {
@@ -74,4 +82,8 @@ app.listen(userPort, () => {
 
 companyApp.listen(companyPort, () => {
     console.log("                      -->>    Company server is running on port: " + companyPort +"    <<--");
+});
+
+jobApp.listen(jobPort, () => {
+    console.log("                      -->>    Job server is running on port: " + jobPort +"    <<--");
 });

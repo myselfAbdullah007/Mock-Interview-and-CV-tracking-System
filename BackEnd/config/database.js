@@ -8,9 +8,9 @@ const connection = async () => {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-.then(() => console.log('\t\t\t\t\t<---<-_->--->\n                          -----------Connected to the database…-----------'))
+.then(() => console.log('\t\t\t\t\t <---< -_- >--->\n\t\t\t  -----------Connected to the database-----------'))
 .catch((err) => console.error('Connection error:', err));
-        console.log("                               -----------Database connected-----------\n");
+        console.log("\t\t\t      -----------Database connected-----------\n");
     }
 
     catch (e) {

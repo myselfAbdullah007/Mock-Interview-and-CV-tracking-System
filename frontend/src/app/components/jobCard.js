@@ -12,7 +12,7 @@ export default function jobCard() {
             <div className='font-bold'>Status: <span className='ms-2 font-normal'>Physical</span></div>
             <div className='font-bold'>Address: <span className='ms-2 font-normal'>Kohinoor</span></div>
             <div className='font-bold'>Salery: <span className='ms-2 font-normal'>40k-60k</span></div>
-
+            <button className='bg-blue-400 px-4 py-3 font-light w-full' >Apply for interview</button>
     </div>
   )
 }

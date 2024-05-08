@@ -42,11 +42,11 @@ export default function SignIn() {
         setloggedin(true);
   
         if (loggedin && (data.status === "CSO")) {
-          window.location.href = "/adminPanel/DashBoard";
+          window.location.href = `/adminPanel/DashBoard?user=${data._id}`;
         }else if (loggedin && (data.status === "Mentor")) {
-          window.location.href = "/mentorPanel/mentorPanel";
+          window.location.href = `/mentorPanel/mentorPanel?user=${data._id}`;
         }else if (loggedin && (data.status === "Student")) {
-          window.location.href = "/userPanel/userPanel";
+          window.location.href = `/clientPanel/userPanel?user=${data._id}`;
         }
       } else {
         console.error("Failed to log in.");
