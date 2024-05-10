@@ -11,12 +11,12 @@ router.post('/saveProfile', async (req, res) => {
     console.log("inside backend");
 
     try {
-        console.log("inside try");
+        console.log("inside -> saveProfile <- try");
         const {  user, work, skills, education, projects, achievements, languages, interests } = req.body;
 
         // Create or update the profile in the database
         const profile = await userModel.findOneAndUpdate(
-            req.params.user , // Assuming you have a user ID associated with the profile
+            { _id: user }, 
             {
                 work,
                 skills,
@@ -28,6 +28,8 @@ router.post('/saveProfile', async (req, res) => {
             },
             { new: true, upsert: true }
         );
+
+        console.log(profile);
 
         res.status(200).json({ message: 'Profile saved successfully', profile });
     } catch (error) {

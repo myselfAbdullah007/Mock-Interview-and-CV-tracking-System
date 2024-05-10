@@ -1,10 +1,15 @@
 'use client'
 import 'tailwindcss/tailwind.css';
 import React, { useRef } from 'react';
+import { useRouter } from 'next/router';
 import Image from "next/image";
 import { useState } from "react";
 import { CldUploadWidget } from 'next-cloudinary';
 export default function RegisterJob() {
+    const router = useRouter();
+    const { user } = router.query;
+
+
     const fileInputRef = useRef(null);
     const [userData, setuserData] = useState({
         title: "",
