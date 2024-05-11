@@ -11,7 +11,7 @@ export default function JobCard(props) {
   const { user } = router.query;
 
   const [jobs, setJobs] = useState([]);
-  const [applicants, setapplicants] = useState([]);
+  const [applicant_id, setapplicant_id] = useState([]);
 
   useEffect(() => {
     GetTodos();
@@ -28,13 +28,38 @@ export default function JobCard(props) {
       .catch(err => console.log("Error: ", err))
   }
 
-  const applyForJob = () => {
-    if(jobs.applicant_id){
-      applicants.push(jobs.applicant_id);}
-    applicants.push(user);
-    console.log("applicant's id after pushing user: " + applicants);
-  }
+  const applyForJob = async (job_id) => {
+    if (jobs.applicant_id) {
+      applicant_id.push(jobs.applicant_id);
+    }
+    applicant_id.push(user);
+    console.log("applicant's id after pushing user: " + applicant_id);
 
+    try {
+      console.log("Inside try of saving application");
+
+      const data = {
+        job_id,
+        applicant_id
+    };
+
+      const response = await fetch('http://localhost:5000/saveApplication', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save data');
+      }
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
   return (
     <div>
       {
@@ -48,7 +73,7 @@ export default function JobCard(props) {
             <div className='font-bold'>Address: <span className='ms-2 font-normal'>Kohinoor</span></div>
             <div className='font-bold'>Salery: <span className='ms-2 font-normal'>{job.salary}</span></div>
             <div className='font-bold'>Deadline: <span className='ms-2 font-normal'>{job.deadline}</span></div>
-            <button className='bg-gradient-to-r from-blue-400 to-purple-700 px-4 py-3 font-light w-full' onClick={applyForJob}>Apply for interview</button>
+            <button className='bg-gradient-to-r from-blue-400 to-purple-700 px-4 py-3 font-light w-full' onClick={() => applyForJob(job._id)}>Apply for interview</button>
           </div>))) : (<p className='text-center font-bold'>No jobs right now</p>)
       }</div>
   );
