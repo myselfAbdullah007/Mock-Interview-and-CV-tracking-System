@@ -14,7 +14,7 @@ export default function RegisterJob() {
     const [userData, setuserData] = useState({
         title: "",
         description: "",
-        Status:"",
+        status:"",
         salary: "",
         deadline: "",
     });
@@ -104,9 +104,9 @@ export default function RegisterJob() {
                                             Status
                                         </label>
                                         <select
-                                            id="Status"
-                                            name="Status"
-                                            autoComplete="Status"
+                                            id="status"
+                                            name="status"
+                                            autoComplete="status"
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                         onChange={setDataInObjec}
                                         >

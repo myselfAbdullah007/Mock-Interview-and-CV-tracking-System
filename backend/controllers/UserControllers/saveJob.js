@@ -8,8 +8,10 @@ router.post("/create-job", async (req, res) => {
     try {
         console.log("Inside SaveJob's try block");
         const { title, description, status, salary, deadline } = req.body;
-
+        console.log("Before if: " + title, description, status, salary, deadline );
         if (!title || !description || !status || !salary || !deadline) {
+            // Need a cmputer Engineer to superbvise all I.T working of a unit.
+            console.log("After if: " +  title, description, status, salary, deadline  );
             return res.status(400).json({ error: "Title, description, status, salary, and deadline are required." });
         }
 
