@@ -50,7 +50,7 @@ app.listen(userPort, () => {
 });
 
 companyApp.listen(companyPort, () => {
-    console.log("                      -->>    Company server is running on port: " + companyPort +"    <<--");
+    console.log("             s        -->>    Company server is running on port: " + companyPort +"    <<--");
 });
 
 jobApp.listen(jobPort, () => {
