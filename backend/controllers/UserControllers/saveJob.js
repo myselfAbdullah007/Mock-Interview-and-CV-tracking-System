@@ -6,6 +6,7 @@ const Job = require("./../../Models/Jobs_Model");
 // Define the route handler for creating a new job
 router.post("/create-job", async (req, res) => {
     try {
+        console.log("Inside SaveJob's try block");
         const { title, description, status, salary, deadline } = req.body;
 
         if (!title || !description || !status || !salary || !deadline) {
@@ -23,7 +24,7 @@ router.post("/create-job", async (req, res) => {
 
         // Save the new job to the database
         const savedJob = await newJob.save();
-
+        console.log(savedJob);
         // Send a success response
         res.status(201).json({ message: "Job created successfully", job: savedJob });
     } catch (error) {

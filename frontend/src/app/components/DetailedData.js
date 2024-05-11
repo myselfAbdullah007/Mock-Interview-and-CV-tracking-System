@@ -105,7 +105,7 @@ const DetailedData = (props) => {
             </div>
             <div className="pt-3">
                 <button className="bg-blue-500 text-white border-rounded px-8 py-2 text-sm float-start">Schedule Interview</button>
-                <button className="bg-red-600 text-white border-rounded px-8 py-2 text-sm float-end">Decline</button>
+                <button className="bg-red-600 text-white border-rounded px-8 py-2 text-sm float-end">Reject Applicantion</button>
             </div>
         </div>
     );

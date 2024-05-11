@@ -32,13 +32,12 @@ export default function RegisterJob() {
         console.log(userData);
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:6000/create-job', {
+            const response = await fetch('http://localhost:5000/create-job', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(userData),
-
             });
             const data = await response.json();
             console.log('Response from backend: ', data);

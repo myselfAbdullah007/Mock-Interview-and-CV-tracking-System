@@ -1,12 +1,11 @@
 
 const express = require('express');
-const saveJobController = require('../controllers/UserControllers/saveJob');
-
-
-
+const getJobcontroller = require('../controllers/UserControllers/jobs');
+const saveJobcontroller = require('../controllers/UserControllers/saveJob');
 
 const JobRouter = express.Router();
 
-JobRouter.get("/create-job",saveJobController);
+JobRouter.post("/create-job", saveJobcontroller);
+JobRouter.get("/",getJobcontroller);
 
 module.exports = JobRouter;

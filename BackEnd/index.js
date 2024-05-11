@@ -3,37 +3,6 @@
  require("dotenv").config();
 
  var bodyParser = require('body-parser')
-// const mongoose = require('mongoose');
-// const cors = require("cors");
-// const connection = require("./config/database.js");
-// const UserRouter = require("./Routes/UserRoutes");
-// const CompanyRouter = require("./Routes/CompanyRoutes.js");
-
-// // -----| Configration |-----
-// const app = express();
-
-// app.use(cors());
-// mongoose.set('strictQuery', false);
-// app.use(express.urlencoded({ extended: true }))
-// // app.use(fileUpload())
-// app.use(express.json());
-
-// connection();
-
-
-
-// //Routes
-// app.use('/', UserRouter);
-
-// //-----| App listening |------
-// const port = process.env.PORT || 8080;
-
-
-
-// app.listen(port, () => {
-//     console.log("server is running on port :" + port)
-// })
-
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -73,7 +42,7 @@ jobApp.use('/', JobRouter);
 // -----| App listening |------
 const userPort = process.env.USER_PORT || 8080; // Port for handling user data
 const companyPort = process.env.COMPANY_PORT || 4000; // Port for handling company data
-const jobPort = process.env.JOB_PORT || 6000; // Port for handling job data
+const jobPort = process.env.JOB_PORT || 5000; // Port for handling job data
 
 
 app.listen(userPort, () => {
