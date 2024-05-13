@@ -7,6 +7,8 @@ export default function UserTable(props) {
     const [label1, setlabel1] = useState("");
     const [label2, setlabel2] = useState("");
     const [label3, setlabel3] = useState("");
+    const [option1, setoption1] = useState("");
+    const [option2, setoption2] = useState("");
 
     const [items, setitems] = useState([]);
     const [displayFlag, setDisplayFlag] = useState(false);
@@ -17,9 +19,11 @@ export default function UserTable(props) {
         setlabel1(props.name);
         setlabel2(props.username);
         setlabel3(props.email);
+        setoption1(props.option1);
+        setoption2(props.option2);
 
         GetTodos();
-    }, [props.name, props.username, props.email]);
+    }, [props.name, props.username, props.email, props.option1, props.option2]);
 
     const GetTodos = () => {
         fetch("http://localhost:8080/")
@@ -62,7 +66,7 @@ export default function UserTable(props) {
             </tbody>
         </table>
         <button onClick={close}>X</button>
-        {displayFlag && <DetailedData display={displayFlag} singleItem={singleItem}/>}
+        {displayFlag && <DetailedData display={displayFlag} singleItem={singleItem} opt1={option1} opt2={option2}/>}
         </>
 
     );

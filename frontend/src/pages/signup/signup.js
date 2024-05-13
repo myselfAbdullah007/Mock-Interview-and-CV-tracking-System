@@ -31,8 +31,21 @@ export default function SignUp() {
                 body: JSON.stringify(userData),
                 
             });
-            const data = await response.json();
-            console.log('Response from backend: ', data);
+            if (response.ok) {
+                const data = await response.json();
+                console.log("User created Successfully!");
+                console.log("Response data:", data);
+
+                if (data.user.status === "CSO") {
+                  window.location.href = `/adminPanel/DashBoard?user=${data.user._id}`;
+                }else if (data.user.status === "Mentor") {
+                  window.location.href = `/mentorPanel/mentorPanel?user=${data.user._id}`;
+                }else if (data.user.status === "Student") {
+                  window.location.href = `/clientPanel/UserPanel?user=${data.user._id}`;
+                }
+              } else {
+                console.error("Failed to log in.");
+              }
         }
         catch (error) {
             console.log("Error: ", error);

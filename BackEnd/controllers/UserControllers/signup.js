@@ -38,10 +38,10 @@ const signup = async (req, res, next) => {
         const payload = {
             id: newUser._id,
         };
-        const token = jwt.sign(payload, process.env.KEY, { expiresIn: "96h" });
-        return res.status(201).json({
+        console.log("Entering JWT");
+        console.log("Exiting JWT");
+        return res.status(200).json({
             message: "User created successfully",
-            token: token,
             user: {
                 id: newUser._id,
                 f_name: newUser.f_name,
@@ -57,3 +57,8 @@ const signup = async (req, res, next) => {
 }
 
 module.exports = signup;
+
+
+
+        // const token = jwt.sign(payload, process.env.KEY, { expiresIn: "96h" });
+            // token: token,
