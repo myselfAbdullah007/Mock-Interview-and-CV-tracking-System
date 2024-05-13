@@ -6,12 +6,15 @@ import './../globals.css';
 const DetailedData = (props) => {
     const [displayFlag, setDisplayFlag] = useState(false);
     const [singleItem, setsingleItem] = useState(null);
-
+    const [option1, setoption1] = useState("");
+    const [option2, setoption2] = useState("");
 
     useEffect(() => {
         setDisplayFlag(props.display);
-        setsingleItem(props.singleItem)
-    }, [props.display, props.singleItem]);
+        setsingleItem(props.singleItem);
+        setoption1(props.option1);
+        setoption2(props.option2);
+    }, [props.display, props.singleItem, props.option1, props.option2]);
 
     return (
         <div className="w-1/2 mx-auto bg-white px-10 py-5 border border-slate-300 rounded-md shadow-[0px_0px_60px_-15px_rgba(0,0,0,0.3)] absolute de-Data space-y-4 text-sm" style={{ display: displayFlag ? 'block' : 'none' }}>
@@ -104,11 +107,12 @@ const DetailedData = (props) => {
                 </div>
             </div>
             <div className="pt-3">
-                <button className="bg-blue-500 text-white border-rounded px-8 py-2 text-sm float-start">Schedule Interview</button>
-                <button className="bg-red-600 text-white border-rounded px-8 py-2 text-sm float-end">Reject Applicantion</button>
+                <button className="bg-blue-500 text-white border-rounded px-8 py-2 text-sm float-start">{option1}</button>
+                <button className="bg-red-600 text-white border-rounded px-8 py-2 text-sm float-end">{option2}</button>
             </div>
         </div>
     );
 };
 
 export default DetailedData;
+

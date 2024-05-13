@@ -42,9 +42,9 @@ export default function SignIn() {
         setloggedin(true);
   
         if (loggedin && (data.status === "CSO")) {
-          window.location.href = `/adminPanel/DashBoard?user=${data._id}`;
+          window.location.href = `/adminPanel/DashBoard?user=${data._id}&status=${data.status}`;
         }else if (loggedin && (data.status === "Mentor")) {
-          window.location.href = `/mentorPanel/mentorPanel?user=${data._id}`;
+          window.location.href = `/mentorPanel/mentorPanel?user=${data._id}&status=${data.status}`;
         }else if (loggedin && (data.status === "Student")) {
           window.location.href = `/clientPanel/UserPanel?user=${data._id}`;
         }

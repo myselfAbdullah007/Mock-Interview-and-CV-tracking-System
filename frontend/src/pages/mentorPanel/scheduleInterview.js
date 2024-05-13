@@ -1,9 +1,10 @@
+'use client'
 import React from 'react'
 import 'tailwindcss/tailwind.css';
 import { useRouter } from 'next/router';
-import Heading from './../../app/components/Heading';
-import Navbar from './../../app/components/Navbar';
-import UserTable from './../UserData/UserTable';
+import Heading from '../../app/components/Heading';
+import Navbar from '../../app/components/Navbar';
+import UserTable from '../UserData/UserTable';
 
 
 export default function scheduleInterview() {
@@ -17,7 +18,7 @@ export default function scheduleInterview() {
       <Heading name={"Schecule Interview"}/>
     </div>
     <div>
-      <UserTable/>
+    <UserTable name={"NAME"} username={"USERNAME"} email={"EMAIL"} option1={"Schedule Interview"} option2={"Reject Applicantion"}/>
     </div>
     </>
   )
