@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from "react";
 import 'tailwindcss/tailwind.css';
 import DetailedData from "./../../app/components/DetailedData";
+import Jobs from '../../app/components/Jobs';
 
 export default function UserTable(props) {
     const router = useRouter();
@@ -16,6 +17,7 @@ export default function UserTable(props) {
 
     const [items, setitems] = useState([]);
     const [displayFlag, setDisplayFlag] = useState(false);
+    const [display2ndFlag, setdisplay2ndFlag] = useState(false);
     const [singleItem, setsingleItem] = useState(null);
 
 
@@ -41,8 +43,14 @@ export default function UserTable(props) {
         setsingleItem(item);
     }
 
+    const showSecondDiv = (item) => {
+        setdisplay2ndFlag(true);
+        setsingleItem(item);
+    }
+
     const close = () => {
         setDisplayFlag(false);
+        setdisplay2ndFlag(false);
     }
 
     return (
@@ -65,7 +73,7 @@ export default function UserTable(props) {
                                 <tr
                                     key={item.id}
                                     className='odd:bg-white even:bg-gray-100 cursor-pointer'
-                                    onClick={() => showDiv(item)}
+                                    onClick={() => showSecondDiv(item)}
                                 >
                                     <td className="px-6 py-4 whitespace-nowrap text-xs">{item._id}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-xs">{item.f_name}</td>
@@ -93,7 +101,21 @@ export default function UserTable(props) {
             </table>
             <button onClick={close}>X</button>
             {displayFlag && <DetailedData display={displayFlag} singleItem={singleItem} option1={option1} option2={option2} />}
+            {display2ndFlag && <Jobs display={display2ndFlag} singleItem={singleItem} />}
+        
         </>
 
     );
 }
+
+
+
+
+
+
+//Table mnse user ki id le ga or hr job ki applicant_id mnse wo id dhunde ga.
+//Agr ussse wo id mil jaeti he to wo wali job table mn display krwa de ga.
+//Jisse humn pta chl jega ke is user ne kis kis job ke lie apply kia hua he. 
+//Eik job pr click krenge to resume open ho jaegi.
+//whan se Schedule interview pr click krenge to day or date puchega.
+//uske baad done krne pr job ki id user ke interviews array mn save hio jaegi.
