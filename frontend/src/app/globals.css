@@ -55,3 +55,8 @@ body {
   top: 25%;
   left:20%;
 }
+.al-Data{
+  top: 10%;
+  left:25%;
+  z-index:1;
+}

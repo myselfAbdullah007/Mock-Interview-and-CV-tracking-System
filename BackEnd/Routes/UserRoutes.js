@@ -7,7 +7,7 @@ const getUserById = require('../controllers/UserControllers/singleUserData');
 const getInterviewsbyid = require('../controllers/UserControllers/userInterviews');
 const saveUserProfile = require('../controllers/UserControllers/saveProfile');
 const saveUserInterview = require('../controllers/UserControllers/saveInterview');
-
+const deleteUser = require('../controllers/UserControllers/deleteUser');
 
 const UserRouter = express.Router();
 
@@ -25,5 +25,7 @@ UserRouter.post("/saveProfile", saveUserProfile);
 UserRouter.post("/saveInterview", saveUserInterview);
 // Get interview
 UserRouter.get("/interviews:id", getInterviewsbyid);
+// Delete User
+UserRouter.delete("/deleteUser",deleteUser)
 
 module.exports = UserRouter;
