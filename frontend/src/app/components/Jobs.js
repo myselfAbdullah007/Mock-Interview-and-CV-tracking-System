@@ -10,6 +10,7 @@ export default function Jobs(props) {
         setDisplayFlag(props.display);
         setsingleItem(props.singleItem);
     }, [props.display, props.singleItem]);
+
     const showDiv = (item) => {
         setdisplay2ndFlag(true);
         setsingleItem(item);
@@ -17,7 +18,7 @@ export default function Jobs(props) {
     return (
         <>
             <div className='w-3/5 ms-auto me-auto absolute bg-white py-3 job-Data' style={{ display: displayFlag ? 'block' : 'none' }}>
-                <div className='text-blue-500 text-4xl text-center mb-2 font-bold'>{singleItem.f_name}</div>
+                <div className='text-blue-500 text-4xl text-center mb-2 font-bold'>singleItem.f_name</div>
                 <div className='border-grey=500 border px-8 cursor-pointer' onClick={() => showDiv(singleItem)}>
                     <div className='text-2xl font-bold'>
                         Job Title

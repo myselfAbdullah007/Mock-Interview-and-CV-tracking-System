@@ -19,7 +19,7 @@ export default function UserTable(props) {
     const [displayFlag, setDisplayFlag] = useState(false);
     const [display2ndFlag, setdisplay2ndFlag] = useState(false);
     const [singleItem, setsingleItem] = useState(null);
-
+    const [jobs, setjobs] = useState([]);
 
     useEffect(() => {
         setlabel1(props.name);
@@ -46,13 +46,21 @@ export default function UserTable(props) {
     const showSecondDiv = (item) => {
         setdisplay2ndFlag(true);
         setsingleItem(item);
+        GetJobs();
     }
-
+    const GetJobs = () => {
+        fetch("http://localhost:5000/")
+            .then(res => res.json())
+            .then(data => {setjobs(data);
+                console.log(data);
+            })
+            .catch(err => console.log("Error: ", err))
+    }
     const close = () => {
         setDisplayFlag(false);
         setdisplay2ndFlag(false);
     }
-
+    
     return (
         <>
             <table className="min-w-full divide-y divide-gray-200 ">
