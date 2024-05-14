@@ -7,7 +7,7 @@ const userModel = require("../../Models/User_Model.js");
 const getUserById = async (req, res, next) => {
     const userId = req.params.id;
     try {
-        console.log('entered in -->> Single UserData  <<-- try block');
+        console.log('entered in try block');
         const user = await userModel.findById(userId);
         if (!user) {
             return res.status(404).json({ error: "User not found" });

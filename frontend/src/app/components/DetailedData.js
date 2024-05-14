@@ -53,6 +53,10 @@ const DetailedData = (props) => {
             console.error('Error:', error);
         }
     }
+
+    const deleteInterview = () =>{
+        console.log("Application removes");
+    }
     return (
         <div className="w-1/2 mx-auto bg-white px-10 py-5 border border-slate-300 rounded-md shadow-[0px_0px_60px_-15px_rgba(0,0,0,0.3)] absolute de-Data space-y-4 text-sm" style={{ display: displayFlag ? 'block' : 'none' }}>
             <div className="text-center text-2xl">User Resume</div>
@@ -145,7 +149,7 @@ const DetailedData = (props) => {
             </div>
             <div className="pt-3">
                 <button className="bg-blue-500 text-white border-rounded px-8 py-2 text-sm float-start" onClick={saveInterview}>{option1}</button>
-                <button className="bg-red-600 text-white border-rounded px-8 py-2 text-sm float-end">{option2}</button>
+                <button className="bg-red-600 text-white border-rounded px-8 py-2 text-sm float-end" onClick={deleteInterview}>{option2}</button>
             </div>
         </div>
     );

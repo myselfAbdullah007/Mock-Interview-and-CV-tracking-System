@@ -106,10 +106,3 @@ export default function UserTable(props) {
 
     );
 }
-
-
-
-
-
-//whan se Schedule interview pr click krenge to day or date puchega.
-//uske baad done krne pr job ki id user ke interviews array mn save hio jaegi.
