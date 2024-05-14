@@ -5,6 +5,7 @@ const signupController = require('../controllers/UserControllers/signup');
 const getUserController = require('../controllers/UserControllers/userData');
 const getUserById = require('../controllers/UserControllers/singleUserData');
 const saveUserProfile = require('../controllers/UserControllers/saveProfile');
+const saveUserInterview = require('../controllers/UserControllers/saveInterview');
 
 
 const UserRouter = express.Router();
@@ -19,5 +20,7 @@ UserRouter.get("/", getUserController);
 UserRouter.get("/:id", getUserById);
 // Save User profile
 UserRouter.post("/saveProfile", saveUserProfile);
+// Save interview
+UserRouter.post("/saveInterview", saveUserInterview);
 
 module.exports = UserRouter;

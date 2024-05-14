@@ -6,6 +6,7 @@ import './../globals.css';
 const DetailedData = (props) => {
     const [displayFlag, setDisplayFlag] = useState(false);
     const [singleItem, setsingleItem] = useState(null);
+    const [singlejob, setSinglejob] = useState(null);
     const [option1, setoption1] = useState("");
     const [option2, setoption2] = useState("");
 
@@ -14,8 +15,44 @@ const DetailedData = (props) => {
         setsingleItem(props.singleItem);
         setoption1(props.option1);
         setoption2(props.option2);
-    }, [props.display, props.singleItem, props.option1, props.option2]);
+        setSinglejob(props.singlejob);
+    }, [props.display, props.singleItem, props.option1, props.option2, props.singlejob]);
 
+    const saveInterview = async () => {
+        const job = null;
+        const interviews = [];
+        for (singleItem.interviews in job) {
+            interviews.push(job);
+        }
+        interviews.push(singlejob);
+        const user = singleItem._id;
+
+
+        try {
+            console.log("Inside saveInterview");
+            const data = {
+                user,
+                interviews
+            };
+
+            const response = await fetch('http://localhost:8080/saveInterview', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save data');
+            }
+
+            const result = await response.json();
+            console.log(result);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
     return (
         <div className="w-1/2 mx-auto bg-white px-10 py-5 border border-slate-300 rounded-md shadow-[0px_0px_60px_-15px_rgba(0,0,0,0.3)] absolute de-Data space-y-4 text-sm" style={{ display: displayFlag ? 'block' : 'none' }}>
             <div className="text-center text-2xl">User Resume</div>
@@ -107,7 +144,7 @@ const DetailedData = (props) => {
                 </div>
             </div>
             <div className="pt-3">
-                <button className="bg-blue-500 text-white border-rounded px-8 py-2 text-sm float-start">{option1}</button>
+                <button className="bg-blue-500 text-white border-rounded px-8 py-2 text-sm float-start" onClick={saveInterview}>{option1}</button>
                 <button className="bg-red-600 text-white border-rounded px-8 py-2 text-sm float-end">{option2}</button>
             </div>
         </div>

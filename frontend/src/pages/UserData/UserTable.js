@@ -110,11 +110,6 @@ export default function UserTable(props) {
 
 
 
-// jobs={jobs}
 
-//Table mnse user ki id le ga or hr job ki applicant_id mnse wo id dhunde ga.
-//Agr ussse wo id mil jaeti he to wo wali job table mn display krwa de ga.
-//Jisse humn pta chl jega ke is user ne kis kis job ke lie apply kia hua he.
-//Eik job pr click krenge to resume open ho jaegi.
 //whan se Schedule interview pr click krenge to day or date puchega.
 //uske baad done krne pr job ki id user ke interviews array mn save hio jaegi.

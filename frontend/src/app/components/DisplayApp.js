@@ -6,6 +6,7 @@ export default function DisplayApp(props) {
     const [filteredItems, setFilteredItems] = useState([]);
     const [displayFlag, setDisplayFlag] = useState(false);
     const [singleItem, setSingleItem] = useState(null);
+    const [singlejob, setSinglejob] = useState(null);
     const [display2ndFlag, setDisplay2ndFlag] = useState(false);
 
     useEffect(() => {
@@ -23,9 +24,10 @@ export default function DisplayApp(props) {
         }
     }, [items, singleItem]);
 
-    const showDiv = (item) => {
+    const showDiv = (item, job_id) => {
         setDisplay2ndFlag(true);
         setSingleItem(item);
+        setSinglejob(job_id);
     };
 
     const GetJobs = () => {
@@ -57,7 +59,7 @@ export default function DisplayApp(props) {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                     {filteredItems.map((item) => (
-                        <tr key={item._id} className='odd:bg-white even:bg-gray-100 cursor-pointer' onClick={() => showDiv(singleItem)}>
+                        <tr key={item._id} className='odd:bg-white even:bg-gray-100 cursor-pointer' onClick={() => showDiv(singleItem, item._id)}>
                             <td className="px-6 py-4 whitespace-nowrap text-xs">{item.title}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-xs">{item.description}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-xs">{item.deadline}</td>
@@ -65,7 +67,7 @@ export default function DisplayApp(props) {
                     ))}
                 </tbody>
             </table>
-            {display2ndFlag && <DetailedData display={display2ndFlag} singleItem={singleItem} option1={"Schedule Interview"} option2={"Reject Application"} />}
+            {display2ndFlag && <DetailedData display={display2ndFlag} singleItem={singleItem} option1={"Schedule Interview"} option2={"Reject Application"} singlejob={singlejob}/>}
         </>
     );
 }
