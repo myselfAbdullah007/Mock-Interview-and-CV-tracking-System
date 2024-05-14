@@ -246,7 +246,7 @@ export default function editProfile() {
             }
 
             const result = await response.json();
-            console.log(result)y 
+            console.log(result);
         } catch (error) {
             console.error('Error:', error);
         }

@@ -33,7 +33,6 @@ const JobModel  = new mongo.Schema({
         type: [String],
         required: [false, 'applicant_id is not required'],
         default:[],
-        unique:true
     },
 
     isVerified: {
