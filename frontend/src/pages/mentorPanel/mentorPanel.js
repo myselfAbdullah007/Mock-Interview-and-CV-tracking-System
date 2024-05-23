@@ -17,7 +17,7 @@ export default function mentorPanel() {
 
   return (
     <>
-      <Navbar home={"Home"} location1={`/mentorPanel/mentorPanel?user=${user}`} meeting={"Schecule Interview"} location2={`/mentorPanel/ScheduleInterview?user=${user}&status=${status}`} menu4={""} location4={`#`} />
+      <Navbar home={"Home"} location1={`/mentorPanel/mentorPanel?user=${user}`} meeting={"Schecule Interview"} location2={`/mentorPanel/scheduleInterview?user=${user}&status=${status}`} menu4={""} location4={`#`} />
       <div className='mt-28 mb-10'>
         <Heading name={"Welcome to Mentor Panel"} />
       </div>
