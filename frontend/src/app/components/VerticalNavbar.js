@@ -17,13 +17,13 @@ export default function verticalNavbar(props) {
         <nav className="bg-gray-800 w-48 h-screen fixed left-0 top-0">
             <ul className="flex flex-col items-center justify-center h-full">
                 <li className="mb-4 mt-auto">
-                    <Link href="/adminPanel/DashBoard" className="text-white">DashBoard</Link>
+                    <Link href={location1} className="text-white">DashBoard</Link>
                 </li>
                 <li className="mb-4">
                     <Link href={location2} className="text-white">User Table</Link>
                 </li>
                 <li className="mb-4">
-                    <Link href="/adminPanel/CompanyPanel" className="text-white">Companies</Link>
+                    <Link href={location3} className="text-white">Companies</Link>
                 </li>
                 <li className="mb-4">
                     <Link href="/contact" className="text-white">Contact</Link>

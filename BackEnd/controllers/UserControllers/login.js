@@ -54,6 +54,8 @@ const login = async (req, res, next) => {
         //putting user id in pyaload so find user uniquely
         const payload = {
             id: findUser._id,
+            email: findUser.email,
+            status: findUser.status
         };
         console.log("4th If");
 

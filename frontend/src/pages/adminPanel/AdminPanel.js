@@ -15,7 +15,7 @@ export default function AdminPanel() {
 
             <div className="mt-24">
                 <div className="flex">
-                    <VerticalNavbar location2={`/adminPanel/AdminPanel?user=${user}&status=${status}`}/>
+                <VerticalNavbar location1={`/adminPanel/DashBoard?user=${user}&status=${status}`} location2={`/adminPanel/AdminPanel?user=${user}&status=${status}`} location3={`/adminPanel/CompanyPanel?user=${user}&status=${status}`}/>
                     <main className="container flex-grow min-h-screen">
                         <Heading />
                         <div className='w-4/5 ms-auto mt-5'>

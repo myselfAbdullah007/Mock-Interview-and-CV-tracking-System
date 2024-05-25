@@ -15,7 +15,7 @@ export default function UserTable(props) {
     const [option1, setoption1] = useState("");
     const [option2, setoption2] = useState("");
 
-    const [items, setitems] = useState([]);
+    const [items, setItems] = useState([]);
     const [displayFlag, setDisplayFlag] = useState(false);
     const [display2ndFlag, setdisplay2ndFlag] = useState(false);
     const [singleItem, setsingleItem] = useState(null);
@@ -31,12 +31,30 @@ export default function UserTable(props) {
     }, [props.name, props.username, props.email, props.option1, props.option2]);
 
     const GetTodos = () => {
-        fetch("http://localhost:8080/")
-            .then(res => res.json())
-            .then(data => setitems(data))
-            .catch(err => console.log("Error: ", err))
-    }
-
+        const token = localStorage.getItem("token");
+    
+        if (!token) {
+            console.error("No token found, please log in.");
+            return;
+        }
+    
+        fetch("http://localhost:8080/", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "x-access-token": token,
+            },
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Failed to fetch todos');
+                }
+                return res.json();
+            })
+            .then(data => setItems(data))
+            .catch(err => console.log("Error: ", err));
+    };
+    
     const showDiv = (item) => {
         setDisplayFlag(true);
         setsingleItem(item);
