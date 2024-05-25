@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../../Models/User_Model.js");
 
-const secret = process.env.KEY;
+const secret = process.env.SECRET_KEY;
 
 const login = async (req, res, next) => {
     const { email, password } = req.body;
@@ -57,13 +57,13 @@ const login = async (req, res, next) => {
         };
         console.log("4th If");
 
-        // const token = jwt.sign(payload, process.env.KEY, { expiresIn: "96h" });
+        const token = jwt.sign(payload, secret, { expiresIn: '1h' });
         console.log("-->>   USer Varified   <<--")
         return res.status(200).json({
             message: "OK Login successful",
             _id: findUser._id,
-            status: findUser.status
-            // token: token,
+            status: findUser.status,
+            token: token,
         });
     }
 

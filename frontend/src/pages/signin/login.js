@@ -38,15 +38,16 @@ export default function SignIn() {
         const data = await response.json();
         console.log("User Logged in Successfully!");
         console.log("Response data:", data);
-        // console.log("Status: ", data.status)
+
+        localStorage.setItem("token", data.token);
 
         setloggedin(true);
 
-        if (loggedin && (data.status === "CSO")) {
+        if (loggedin && data.status === "CSO") {
           window.location.href = `/adminPanel/DashBoard?user=${data._id}&status=${data.status}`;
-        } else if (loggedin && (data.status === "Mentor")) {
+        } else if (loggedin && data.status === "Mentor") {
           window.location.href = `/mentorPanel/mentorPanel?user=${data._id}&status=${data.status}`;
-        } else if (loggedin && (data.status === "Student")) {
+        } else if (loggedin && data.status === "Student") {
           window.location.href = `/clientPanel/userPanel?user=${data._id}`;
         }
       } else {
@@ -56,12 +57,13 @@ export default function SignIn() {
     } catch (error) {
       console.error("An Error Occurred while logging in: ", error);
     }
-  }
+  };
+
 
 
   return (
     <>
-    <Alert displayAlert={displayAlert} message={"Error Occurred. Try Again!"}/>
+      <Alert displayAlert={displayAlert} message={"Error Occurred. Try Again!"} />
       <div className="min-h-screen">
         <div className=" grid grid-cols-2 border border-slate-300 w-2/3 mx-auto bg-white mt-8 rounded-md shadow-xl">
           <div className="sm:mx-auto sm:w-full sm:max-w-xl pt-2 pb-16">

@@ -3,11 +3,15 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function verticalNavbar(props) {
+    const [location1, setlocation1] = useState("");
     const [location2, setlocation2] = useState("");
+    const [location3, setlocation3] = useState("");
 
     useEffect(() => {
+        setlocation1(props.location1);
         setlocation2(props.location2);
-    }, [props.location2]);
+        setlocation3(props.location3);
+    }, [props.location1,props.location2,props.location3]);
 
     return (
         <nav className="bg-gray-800 w-48 h-screen fixed left-0 top-0">

@@ -8,6 +8,7 @@ const getInterviewsbyid = require('../controllers/UserControllers/userInterviews
 const saveUserProfile = require('../controllers/UserControllers/saveProfile');
 const saveUserInterview = require('../controllers/UserControllers/saveInterview');
 const deleteUser = require('../controllers/UserControllers/deleteUser');
+const verifyToken = require("../middleware/verifyTokens");
 
 const UserRouter = express.Router();
 
@@ -26,6 +27,10 @@ UserRouter.post("/saveInterview", saveUserInterview);
 // Get interview
 UserRouter.get("/interviews:id", getInterviewsbyid);
 // Delete User
-UserRouter.delete("/deleteUser",deleteUser)
+UserRouter.delete("/deleteUser",deleteUser);
+// protected route
+UserRouter  .get("/protected", verifyToken, (req, res) => {
+    res.status(200).json({ message: "This is a protected route", userId: req.userId });
+});
 
 module.exports = UserRouter;
